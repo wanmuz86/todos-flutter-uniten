@@ -48,6 +48,10 @@ class _HomePageState extends State<HomePage> {
 
   void loadData() async {
     final prefs = await SharedPreferences.getInstance();
+    // In Dart, there will be datatype that can accept value of null, or cannot accept it
+    // String name = null (this is wrong).
+    // Normal String cannot accept null value
+    // String? name ; <- Can be null or a String (Optional)
     String? todoString = prefs.getString("todos");
     if (todoString != null){
       setState((){
